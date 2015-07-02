@@ -92,4 +92,28 @@ describe Calculator do
 
   end
 
+  describe "pow" do
+
+    it "raises a positive number to a positive power" do
+      expect(calculator.pow(2,3)).to eq(8)
+    end
+
+    it "raises a positive number to a negative power" do
+      expect(calculator.pow(2,-3)).to eq(0.125)
+    end
+
+    it "raises a negative number to a positive power" do
+      expect(calculator.pow(-2, 2)).to eq(4)
+    end
+
+    it "raises a negative number to a negative power" do
+      expect(calculator.pow(-2,-3)).to eq(-0.125)
+    end
+
+    it "raises a number to a decimal power" do
+      expect(calculator.pow(9, 0.5)).to eq(3)
+    end
+
+  end
+
 end
