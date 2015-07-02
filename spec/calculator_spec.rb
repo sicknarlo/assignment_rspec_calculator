@@ -145,4 +145,67 @@ describe Calculator do
 
   end
 
+  describe "#memory=" do
+
+    before do
+      calculator.memory = 10
+    end
+
+    it "stores an object in memory" do
+      expect(calculator.memory).to eq(10)
+    end
+
+    it "overwrites anything currently in memory" do
+      calculator.memory = 15
+      expect(calculator.memory).to eq(15)
+    end
+
+  end
+
+  describe "#memory" do
+
+    context "just intialized" do
+
+      it "starts as nil" do
+        expect(calculator.memory).to be_nil
+      end
+
+    end
+
+    context "with something stored to memory" do
+      before do
+        calculator.memory = 10
+      end
+
+      it "returns the object in memory" do
+        expect(calculator.memory).to eq(10)
+      end
+
+      it "clears memory when returned" do
+        calculator.memory
+        expect(calculator.memory).to be_nil
+      end
+
+    end
+
+  end
+
+  describe "#stringify" do
+
+    context "stringify is false" do
+      it "does not return a string" do
+        expect(calculator.add(5,2)).not_to be_a(String)
+      end
+    end
+
+    context "stringify is true" do
+      let(:string_calc){Calculator.new(true)}
+
+      it "returns a string" do
+        expect(string_calc.add(5,2)).to be_a(String)
+      end
+    end
+
+  end
+
 end

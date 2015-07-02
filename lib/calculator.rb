@@ -1,11 +1,14 @@
 class Calculator
+
   def initialize(stringify = false)
     @memory = nil
     @stringify = stringify
   end
+
   def add(a,b)
     output(a+b)
   end
+
   def subtract(a,b)
     output(a-b)
   end
