@@ -22,7 +22,7 @@ class Calculator
   end
   def sqrt(a)
     raise ArgumentError if a < 0
-    root = a**0.5
+    root = pow(a, 0.5)
     root == root.to_i ? output(root.to_i) : output(root.round(2))
   end
   # returns the item in memory and wipes memory

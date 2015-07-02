@@ -116,4 +116,33 @@ describe Calculator do
 
   end
 
+  describe "#sqrt" do
+
+    it "determines square root for positive numbers" do
+      expect(calculator.sqrt(9)).to eq(3)
+    end
+
+    it "raises errors for negative numbers" do
+      expect{calculator.sqrt(-9)}.to raise_error(ArgumentError)
+    end
+
+
+    it "returns integers for round roots" do
+      expect(calculator.sqrt(9)).to be_a(Integer)
+    end
+
+    it "returns 2 digit decimals for non-round roots" do
+      expect(calculator.sqrt(5)).to eq(2.24)
+    end
+
+    it "does not round roots for decimal returns" do
+      expect(calculator.sqrt(5)).not_to eq(2)
+    end
+
+    it "does not return 3 decimals for non-round roots" do
+      expect(calculator.sqrt(5)).not_to eq(2.236)
+    end
+
+  end
+
 end
