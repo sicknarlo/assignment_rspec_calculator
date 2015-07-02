@@ -48,4 +48,48 @@ describe Calculator do
 
   end
 
+  describe "#multiply" do
+
+    it "multiplies two positive numbers" do
+      expect(calculator.multiply(5,2)).to eq(10)
+    end
+
+    it "multiplies two negative numbers" do
+      expect(calculator.multiply(-3, -2)).to eq(6)
+    end
+
+    it "it multiplies a positive and negative number" do
+      expect(calculator.multiply(5, -2)).to eq(-10)
+    end
+
+    it "multiplies two floats" do
+      expect(calculator.multiply(1.5, 6)).to eq(9)
+    end
+
+  end
+
+  describe "divide" do
+
+    it "divides two integers evenly" do
+      expect(calculator.divide(10,2)).to eq(5)
+    end
+
+    it "divides two integerts with remainder" do
+      expect(calculator.divide(5, 2)).to eq(2.5)
+    end
+
+    it "raises an ArgumentError if the second int is 0" do
+      expect{calculator.divide(5,0)}.to raise_error(ArgumentError)
+    end
+
+    it "returns an integer if there is no remainder" do
+      expect(calculator.divide(0.8, 0.2)).to be_a(Integer)
+    end
+
+    it "returns a float if there is a remainder" do
+      expect(calculator.divide(5, 2)).to be_a(Float)
+    end
+
+  end
+
 end
